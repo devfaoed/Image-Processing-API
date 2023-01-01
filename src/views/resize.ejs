@@ -36,7 +36,7 @@
   <div id="image-container">
     <% if ( data.length > 0 ) { %>
       <% data.forEach((img) => { %>
-        <img class='sized-image' src="public/images/thumbnails/<%= img %>">
+        <a href="public/images/thumbnails/<%= img %>"><img class='sized-image' src="public/images/thumbnails/<%= img %>"></a>
       <% }); %>
     <% } %>
   </div>

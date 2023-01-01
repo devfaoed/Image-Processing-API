@@ -2,7 +2,8 @@ import express, { Application } from 'express';
 import path from 'path';
 import { routes } from './routes';
 import { morganMiddleware } from './middleware/logger';
-import { pageNotFound404 } from './middleware/pageNotFound404.middleware';
+import { pageNotFound404, error } from './middleware/pageNotFound404.middleware';
+
 
 // Get expess
 export const app: Application = express();
@@ -20,3 +21,5 @@ routes(app);
 
 // page not found middleware
 app.use(pageNotFound404);
+
+app.all("*", error)

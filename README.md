@@ -146,12 +146,3 @@ This API uses the directory `./public/images/full` to get images when resizing. 
 !['no images to resize'](./docs/images/noParams.png)
 
 If we are accessing the resizing endpoint, we should also provide the dimension that will be used to resize the images. If no parameter is provided, a warning message will be shown on the frontend as seen above
-
-NB: At least one parameter should be provided. We may decided to resize only the width or the height. 
-
-## Resources
-- [Jest doc](https://jest-bot.github.io/jest/docs/getting-started.html)
-- [TypeScript doc](https://www.typescriptlang.org)
-- [Resizing Images with Sharp](https://sharp.pixelplumbing.com/api-resize)
-- [Fastest way to copy a file in Node.js](https://stackoverflow.com/questions/11293857/fastest-way-to-copy-a-file-in-node-js)
-- [Prettire format options](https://prettier.io/docs/en/options.html)
