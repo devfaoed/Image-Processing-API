@@ -137,12 +137,12 @@ This API handles situations where there are no images to resize or parameters ar
 
 ### 1. No images to resize
 
-!['no images to resize'](./docs/images/noImages.png)
+!['no images to resize']
 
 This API uses the directory `./public/images/full` to get images when resizing. If no images are found in this directory and the corresponding resized images can't be found in the `./public/images/thumbnails` directory, then a warning message will be shown on the frontend as seen above.
 
 ### 2. No Parameter is provided 
 
-!['no images to resize'](./docs/images/noParams.png)
+!['no images to resize']
 
 If we are accessing the resizing endpoint, we should also provide the dimension that will be used to resize the images. If no parameter is provided, a warning message will be shown on the frontend as seen above
