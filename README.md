@@ -129,7 +129,7 @@ http://localhost:4000/
 
 If you try to access an enpoint order than these, this moddleware will redirect to a page not found as seen below
 
-!['pageNotFound'](./docs/images/pageNotFound.png)
+!['pageNotFound']
 
 
 ## Handling Other Uncertainties
