@@ -1,22 +1,21 @@
-import path from 'path';
 import express, { Application } from 'express';
-import morgan from 'morgan';
-import routes from './router';
-
-const PORT = process.env.PORT || 3000;
-// Instance of express App
 const app: Application = express();
-// Set Views template engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-// Morgan Logger Middleware
+
+import path from 'path';
+import morgan from 'morgan';
+
+// routes importation
+import routes from './route';
+
+// setting up middleware
 app.use(morgan('short'));
-// Routes
 app.use('/', routes);
 
-// Start the Server
-app.listen(PORT, (): void => {
-  console.log(`Server started at http://localhost:${PORT}`);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.listen(4000, () => {
+  console.log(`Server started at http://localhost:4000`);
 });
 
 export default app;
