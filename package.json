@@ -1,59 +1,50 @@
 {
-  "name": "image-processing-api",
+  "name": "image-processing-api-udacity",
   "version": "1.0.0",
-  "description": "This is an API that can be used in two different ways. The first, as a simple placeholder API that allows us to place images into our frontend with the size set via url parameters. The second use case is as a library to serve properly scaled versions of our images to the frontend to reduce page load size.",
+  "description": "",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "prod": "npm run build && node build/index.js",
+    "dev": "nodemon src/index.ts",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 -a true src/views/** src/images/** dist/",
+    "build": "npm run clean && tsc && npm run copy-files",
+    "start": "npm run build && node dist/index.js",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
     "format": "prettier --config .prettierrc ./src/**/*.ts --write",
-    "build": "rimraf ./build && tsc",
-    "lint": "eslint . --ext .ts",
-    "lint-fix": "eslint . --ext .ts --fix",
-    "test": "jest"
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint ./src/**/*.ts --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/devfaoed/Image-Processing-API.git"
+  "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.0.3",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.30",
+    "@types/sharp": "^0.30.2",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "2.6.2",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.2.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "sharp": "^0.30.4"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/devfaoed/Image-Processing-API/issues"
-  },
-  "homepage": "https://github.com/devfaoed/Image-Processing-API#readme",
-  "dependencies": {
-    "ejs": "^3.1.8",
-    "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "rimraf": "^3.0.2",
-    "sharp": "^0.31.3"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.15",
-    "@types/jest": "^29.2.5",
-    "@types/morgan": "^1.9.4",
-    "@types/sharp": "^0.31.1",
-    "@types/supertest": "^2.0.12",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
-    "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "jest": "^29.3.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.8.1",
-    "supertest": "^6.3.3",
-    "ts-jest": "^29.0.3",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
-  }
+  "license": "ISC"
 }
