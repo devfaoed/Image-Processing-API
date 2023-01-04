@@ -85,12 +85,12 @@ This project defines two endpoint.
 
 ### 1. available images can be accessed through the endpoint
 
-`GET /api/images`
+`GET /`
 
 ### 2. Get specific image from the available images
 
-`GET /api/images?filename={IMAGE_NAME}`
+`GET /images?filename={IMAGE_NAME}`
 
 ### 3. Create thumb version of image
 
-`GET /api/images/?filename={IMAGE_NAME}&height={HEIGHT}&width={WIDTH}`
+`GET /images/?filename={IMAGE_NAME}&height={HEIGHT}&width={WIDTH}`

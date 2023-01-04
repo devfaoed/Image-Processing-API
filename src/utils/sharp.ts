@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import sharp from 'sharp';
-import { ImgDir, alreadyExis } from './opearations';
+import { getImagePath, makeDirIfNotExists } from './operations';
 import path from 'path';
 
 interface ImageDimensions {
@@ -17,7 +17,7 @@ export const resizeImage = async (
   height: number,
   extension = 'jpg'
 ): Promise<boolean> => {
-  const imagePath = ImgDir(originalImageName);
+  const imagePath = getImagePath(originalImageName);
   const dimensions: ImageDimensions = {};
   if (width) dimensions.width = +width;
   if (height) dimensions.height = +height;
@@ -28,7 +28,7 @@ export const resizeImage = async (
   );
 
   try {
-    await alreadyExis(thumbnailFolderPath);
+    await makeDirIfNotExists(thumbnailFolderPath);
     const originalImg = await readFile(imagePath);
     await sharp(originalImg).resize(dimensions).toFile(thumbnailPath);
     return true;
