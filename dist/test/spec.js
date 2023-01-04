@@ -26,11 +26,11 @@ describe('Test Endpoint Response', () => {
         expect(response.statusCode).toBe(404);
     }));
     it('should resize the fjord image and create the new one returned status code should be 201', () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get('/images?filename=fjord&width=800');
+        const response = yield request.get('/images?filename=fjord&width=50');
         expect(response.statusCode).toBe(201);
     }));
     it('should get the fjord image from cache, returned status code should be 200', () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get('/images?filename=fjord&width=800');
+        const response = yield request.get('/images?filename=fjord&width=50');
         expect(response.statusCode).toBe(200);
     }));
     it('should return 404 status code when image not found', () => __awaiter(void 0, void 0, void 0, function* () {
